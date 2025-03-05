@@ -55,9 +55,9 @@ A structured process to detect email impersonation, domain spoofing, and unautho
 - The `From` field may look legitimate, but the `Reply-To` and `Return-Path` fields can expose the real sender.
 
 **Example of a phishing attempt:**
-- `From:` <support@paypal.com>
-- `Reply-To:` <frauddept@gmail.com>
-- `Return-Path:` <malicious@hacker.com>
+- `From:` `support@paypal.com`
+- `Reply-To:` `frauddept@gmail.com`
+- `Return-Path:` `malicious@hacker.com`
 
 
 ### 📌 Analyze the ‘Reply-To’ Field for Mismatches
@@ -68,16 +68,16 @@ A structured process to detect email impersonation, domain spoofing, and unautho
 - A mismatch indicates an attempt to redirect communication away from the legitimate sender.
 
 **Example of a spoofed email:**
-- `From:` <billing@paypal.com>
-- `Reply-To:` <fraudulent@gmail.com>
+- `From:` `billing@paypal.com`
+- `Reply-To:` `fraudulent@gmail.com`
 
 
 ### 📌 Check for Free Email Services in ‘Reply-To’
 - Attackers may use `Gmail`, `Yahoo`, or `Outlook` addresses in the `Reply-To` field while impersonating a corporate email.
 
 **Example:**
-- `From:` <security@bankofamerica.com>
-- `Reply-To:` <bank.secure@gmail.com>
+- `From:` `security@bankofamerica.com`
+- `Reply-To:` `bank.secure@gmail.com`
 
 
 **🛠 Tools to Analyze the Reply-To Field:**  
@@ -93,8 +93,8 @@ A structured process to detect email impersonation, domain spoofing, and unautho
 - Legitimate emails should have matching domains in the `From` and `Return-Path` fields.
 
 **Example of a spoofed email:**
-- `From:` <billing@apple.com>
-- `Return-Path:` <mailserver@randomxyz.com>
+- `From:` `billing@apple.com`
+- `Return-Path:` `mailserver@randomxyz.com`
 
 
 ### 📌 Look for Mismatches Between SPF Authentication and the Return-Path
@@ -115,8 +115,8 @@ A structured process to detect email impersonation, domain spoofing, and unautho
 - Attackers may impersonate trusted contacts by using similar-looking names but with a different sending domain.
 
 **Example:**
-- `Legitimate:` John Doe <john.doe@microsoft.com>
-- `Spoofed:` John Doe <john.doe@microsoft-support.com>
+- `Legitimate:` John Doe `john.doe@microsoft.com`
+- `Spoofed:` John Doe `john.doe@microsoft-support.com`
 
 
 ### 📌 Look for Signs of BEC (Business Email Compromise)
