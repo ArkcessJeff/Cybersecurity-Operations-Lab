@@ -1,6 +1,3 @@
-Here is the updated playbook in Markdown format with email addresses in plain text:
-
-```markdown
 # Playbook for Investigating Spoofed Email Headers
 
 A structured process to detect email impersonation, domain spoofing, and unauthorized email senders.
@@ -55,36 +52,33 @@ A structured process to detect email impersonation, domain spoofing, and unautho
 
 ### 📌 Compare ‘From’, ‘Reply-To’, and ‘Return-Path’ Fields
 - Attackers often manipulate multiple fields to bypass detection.
-- The ‘From’ field may look legitimate, but the ‘Reply-To’ and ‘Return-Path’ fields can expose the real sender.
+- The `From` field may look legitimate, but the `Reply-To` and `Return-Path` fields can expose the real sender.
 
 **Example of a phishing attempt:**
-```
-From: <support@paypal.com>  
-Reply-To: <frauddept@gmail.com>  
-Return-Path: <malicious@hacker.com> 
-```
+From: support@paypal.com
+Reply-To: frauddept@gmail.com
+Return-Path: malicious@hacker.com
+
 
 ### 📌 Analyze the ‘Reply-To’ Field for Mismatches
-- Attackers often redirect responses to a fraudulent email address, even if the ‘From’ address appears legitimate.
+- Attackers often redirect responses to a fraudulent email address, even if the `From` address appears legitimate.
 - **Common in:** Business Email Compromise (BEC), financial fraud, and phishing scams.
 
 ### 📌 Verify if the ‘Reply-To’ Domain Matches the ‘From’ Domain
 - A mismatch indicates an attempt to redirect communication away from the legitimate sender.
 
 **Example of a spoofed email:**
-```
-From: <billing@paypal.com>  
-Reply-To: <fraudulent@gmail.com>  
-```
+From: billing@paypal.com
+Reply-To: fraudulent@gmail.com
+
 
 ### 📌 Check for Free Email Services in ‘Reply-To’
-- Attackers may use `Gmail`, `Yahoo`, or `Outlook` addresses in the Reply-To field while impersonating a corporate email.
+- Attackers may use `Gmail`, `Yahoo`, or `Outlook` addresses in the `Reply-To` field while impersonating a corporate email.
 
 **Example:**
-```
-From: <security@bankofamerica.com>
-Reply-To: <bank.secure@gmail.com>  
-```
+From: security@bankofamerica.com
+Reply-To: bank.secure@gmail.com
+
 
 **🛠 Tools to Analyze the Reply-To Field:**  
 - `Google Admin Toolbox Message Header Analyzer`  
@@ -99,17 +93,16 @@ Reply-To: <bank.secure@gmail.com>
 - Legitimate emails should have matching domains in the `From` and `Return-Path` fields.
 
 **Example of a spoofed email:**
-```
-From: <billing@apple.com>
-Return-Path: <mailserver@randomxyz.com>
-```
+From: billing@apple.com
+Return-Path: mailserver@randomxyz.com
+
 
 ### 📌 Look for Mismatches Between SPF Authentication and the Return-Path
 - If an email fails SPF but has a `Return-Path` mismatch, the sender may be attempting to bypass security filters.
 - Verify if the email was truly sent by the domain owner by checking SPF records.
 
 ### 📌 Red Flags in the Return-Path Field
-- **Generic email providers** in Return-Path (e.g., `support@amazon.com` with `Return-Path: amazonhelpdesk@gmail.com`).
+- **Generic email providers** in `Return-Path` (e.g., `support@amazon.com` with `Return-Path: amazonhelpdesk@gmail.com`).
 - **Misspelled domains** (e.g., `Return-Path: alert@microsft.com` instead of `microsoft.com`).
 - **Completely different domains** (`From: ceo@company.com`, `Return-Path: hacker@malicious.net`).
 
@@ -122,10 +115,9 @@ Return-Path: <mailserver@randomxyz.com>
 - Attackers may impersonate trusted contacts by using similar-looking names but with a different sending domain.
 
 **Example:**
-```
-Legitimate: John Doe <john.doe@microsoft.com>  
-Spoofed: John Doe <john.doe@microsoft-support.com>  
-```
+Legitimate: John Doe <john.doe@microsoft.com>
+Spoofed: John Doe <john.doe@microsoft-support.com>
+
 
 ### 📌 Look for Signs of BEC (Business Email Compromise)
 - Verify if the sender is using a legitimate but compromised business account to execute fraud, wire transfer requests, or credential theft.
@@ -153,4 +145,3 @@ Spoofed: John Doe <john.doe@microsoft-support.com>
 
 ### 📌 Educate Employees on Email Spoofing Risks
 - Provide training on recognizing spoofed emails and social engineering techniques used in email fraud.
-```
